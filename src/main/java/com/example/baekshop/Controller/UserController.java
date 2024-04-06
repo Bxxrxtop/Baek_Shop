@@ -25,8 +25,8 @@ public class UserController {
     // 이때 log.info를 이용하여 사용자의 ID를 출력해줍니다. return 값은 "사용자 조회"입니다.
 
     @GetMapping("/{userId}")
-    public String getUser(@PathVariable("userId") int userId,@RequestBody CreateUserRequestDto dto) {
-        log.info(dto.getId());
+    public String getUser(@PathVariable("userId") int userId) {
+        log.info(String.valueOf(userId));
         return "사용자 조회";
     }
 
@@ -42,8 +42,8 @@ public class UserController {
     // 4. 사용자를 삭제하는 컨트롤러를 만듭니다.
     // 이때 log.info 이용하여 사용자의 ID를 출력해줍니다. return 값은 "사용자 삭제"입니다.
     @DeleteMapping("/{userId}")
-    public String deleteUser(@PathVariable("userId") int userId, @RequestBody CreateUserRequestDto dto) {
-        log.info(dto.getId());
+    public String deleteUser(@PathVariable("userId") int userId) {
+        log.info(String.valueOf(userId));
         return "사용자 삭제";
     }
 }
