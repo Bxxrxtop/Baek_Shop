@@ -1,5 +1,6 @@
 package com.example.baekshop.Dto;
 
+import com.example.baekshop.Entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,4 +13,11 @@ public class UpdateUserRequestDto {
     public String name;
 
     public String address;
+
+    public User toEntity(){
+        return User.builder()
+                .name(name)
+                .address(address)
+                .build();
+    }
 }

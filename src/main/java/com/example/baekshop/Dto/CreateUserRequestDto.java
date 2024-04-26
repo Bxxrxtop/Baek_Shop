@@ -1,5 +1,6 @@
 package com.example.baekshop.Dto;
 
+import com.example.baekshop.Entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,5 +17,14 @@ public class CreateUserRequestDto {
     public String password;
 
     public String address;
+
+    public User toEntity(){
+        return User.builder()
+                .id(id)
+                .name(name)
+                .address(address)
+                .password(password)
+                .build();
+    }
 
 }

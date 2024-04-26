@@ -1,5 +1,6 @@
 package com.example.baekshop.Dto;
 
+import com.example.baekshop.Entity.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,11 @@ public class CreateOrderRequestDto {
     //가격
     public int price;
 
+    public Order toEntity(){
+        return Order.builder()
+                .name(name)
+                .quantity(quantity)
+                .price(price)
+                .build();
+    }
 }
