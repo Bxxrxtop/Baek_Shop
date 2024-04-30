@@ -28,10 +28,10 @@ public class Order {
 
 
     // Setter 대신에 update 사용 -> 메소드를 통해서 접근! -> 유지보수 용이
-    public void update(UpdateOrderRequestDto reqdto){
-        this.name = reqdto.getName();
-        this.quantity = reqdto.getQuantity();
-        this.price = reqdto.getPrice();
+    public void update(UpdateOrderRequestDto updateOrderReqDto){
+        this.name = updateOrderReqDto.getName();
+        this.quantity = updateOrderReqDto.getQuantity();
+        this.price = updateOrderReqDto.getPrice();
     }
 
 }

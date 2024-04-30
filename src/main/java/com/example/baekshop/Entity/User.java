@@ -30,8 +30,8 @@ public class User {
 
 
     // Setter 대신 update 사용 -> 메소드를 통해서 접근! -> 유지보수 용이
-    public void update(UpdateUserRequestDto reqdto){
-        this.name = reqdto.getName();
-        this.address = reqdto.getAddress();
+    public void update(UpdateUserRequestDto updateUserReqDto){
+        this.name = updateUserReqDto.getName();
+        this.address = updateUserReqDto.getAddress();
     }
 }
