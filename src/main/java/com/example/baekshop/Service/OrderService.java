@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -53,11 +54,14 @@ public class OrderService {
                 // entity -> dto
                 return OrderResponseDto.from(findOrder);
             }
-
-        }catch (Exception e){
-            log.error("주문 가져오는 중 오류 발생 ---> {}", e.getMessage());
+            else{
+                throw new NoSuchElementException("주문을 찾을 수 없습니다: " + orderId);
+            }
         }
-        return null;
+        catch (Exception e){
+            log.error("주문 가져오는 중 오류 발생 ---> {}", e.getMessage());
+            throw new RuntimeException("주문을 가져오는 중 오류 발생", e);
+        }
     }
 
 

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -38,10 +39,13 @@ public class UserService {
                 User findUser = user.get();
                 return UserResponseDto.from(findUser);
             }
-        }catch (Exception e){
+            else{
+                throw new NoSuchElementException("주문을 찾을 수 없습니다: " + userId);
+            }
+        } catch (Exception e){
             log.error("[ User Service ] 사용자 가져오기 실패 ID ---> {}", userId);
+            throw new RuntimeException("주문을 가져오는 중 오류 발생", e);
         }
-        return null;
     }
 
 
