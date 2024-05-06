@@ -26,7 +26,7 @@ public class OrderController {
             orderService.createOrder(dtos);
             return ResponseEntity.status(HttpStatus.CREATED).body("주문 생성 저장 완료");
         } catch(Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("주문 저장 실패");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("주문 저장 실패" + e.getMessage());
         }
     }
 

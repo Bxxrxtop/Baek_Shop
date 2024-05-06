@@ -1,6 +1,7 @@
 package com.example.baekshop.Dto;
 
 import com.example.baekshop.Entity.Order;
+import com.example.baekshop.Entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class CreateOrderRequestDto {
 
+    public Long userId;
     //상품 이름
     public String name;
 
