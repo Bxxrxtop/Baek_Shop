@@ -21,23 +21,29 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId")
-    public Long userId;
+    @Column(name = "id")
+    private Long id;
 
-    @Column(name = "id", nullable = false)
-    public String id;
+    @Column(name = "email", nullable = false)
+    private String email;
 
     @Column(name = "name")
-    public String name;
+    private String name;
 
     @Column(name = "password")
-    public String password;
+    private String password;
 
     @Column(name = "address")
-    public String address;
+    private String address;
+
+    // roles 추가
+    @Column(name = "roles")
+    private String roles;
+
+
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    public List<Order> orders;
+    private List<Order> orders;
 
     // Setter 대신 update 사용 -> 메소드를 통해서 접근! -> 유지보수 용이
     public void update(UpdateUserRequestDto updateUserReqDto){
