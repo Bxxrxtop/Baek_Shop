@@ -10,11 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor //모든 매개변수를 받는 생성자를 생성해 줍니다.
 @Getter
 public class CreateOrderRequestDto {
-
-    public Long userId;
     //상품 이름
     public String name;
-
     //수량
     public int quantity;
 
@@ -27,5 +24,5 @@ public class CreateOrderRequestDto {
                 .quantity(quantity)
                 .price(price)
                 .build();
+        }
     }
-}

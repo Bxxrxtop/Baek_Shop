@@ -11,16 +11,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserResponseDto {
-    public String name;
 
-    public String id;
+    public Long id;
+
+    public String name;
 
     public String address;
 
     public static UserResponseDto from(User user){
         return UserResponseDto.builder()
-                .name(user.getName())
                 .id(user.getId())
+                .name(user.getName())
                 .address(user.getAddress())
                 .build();
     }

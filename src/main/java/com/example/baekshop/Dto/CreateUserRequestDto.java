@@ -4,6 +4,7 @@ import com.example.baekshop.Entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @NoArgsConstructor //매개변수 없는 생성자를 생성해 줍니다
 @AllArgsConstructor //모든 매개변수를 받는 생성자를 생성해 줍니다
@@ -12,18 +13,20 @@ public class CreateUserRequestDto {
 
     public String name;
 
-    public String id;
+    public String email;
 
     public String password;
 
     public String address;
 
-    public User toEntity(){
+    public User toEntity(PasswordEncoder passwordEncoder){
+        String encodePassword = passwordEncoder.encode(password);
         return User.builder()
-                .id(id)
+                .email(email)
                 .name(name)
                 .address(address)
-                .password(password)
+                .password(encodePassword)
+                .roles("USER")
                 .build();
     }
 
