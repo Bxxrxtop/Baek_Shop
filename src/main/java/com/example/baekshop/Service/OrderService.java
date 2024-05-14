@@ -50,12 +50,10 @@ public class OrderService {
         try {
             // db에서 orderId에 맞는 order 가져오기
             Optional<Order> order = orderRepository.findById(orderId);
-            Optional<User> user = userRepository.findByEmail(email);
-            if (order.isPresent() && user.isPresent()) {
+            if (order.isPresent()) {
                 Order findOrder = order.get();
-                User loginUser = user.get();
                 // entity -> dto
-                if (findOrder.getUser().equals(loginUser)) {   // 로그인한 User와 Order의 User 비교
+                if (findOrder.getUser().getEmail().equals(email)) {   // 로그인한 User와 Order의 User 비교
                     return OrderResponseDto.from(findOrder);
                 }
                 else{
@@ -75,11 +73,9 @@ public class OrderService {
         // repository findById 같은 메소드로 db에서 가져오기
         try{
             Optional<Order> order = orderRepository.findById(orderId);
-            Optional<User> user = userRepository.findByEmail(email);
-            if(user.isPresent() && order.isPresent()){
-                User findUser = user.get();              // login한 User
+            if(order.isPresent()){
                 Order findOrder = order.get();
-                if(findOrder.getUser().equals(findUser)){       // order의 User와 login한 User 같은지 비교.
+                if(findOrder.getUser().getEmail().equals(email)){  // order의 User와 login한 User 같은지 비교.
                     findOrder.update(reqdto);                   // 같다면 update 후 저장.
                     orderRepository.save(findOrder);
                 }
@@ -94,11 +90,9 @@ public class OrderService {
         // repository에서 delete 메소드
         try{
             Optional<Order> order = orderRepository.findById(orderId);
-            Optional<User> user = userRepository.findByEmail(email);
-            if(user.isPresent() && order.isPresent()){
-                User findUser = user.get();              // login한 User
+            if(order.isPresent()){
                 Order findOrder = order.get();
-                if(findOrder.getUser().equals(findUser)){       // order의 User와 login한 User 같은지 비교.
+                if(findOrder.getUser().getEmail().equals(email)){       // order의 User와 login한 User 같은지 비교.
                     orderRepository.deleteById(orderId);
                 }
             }
