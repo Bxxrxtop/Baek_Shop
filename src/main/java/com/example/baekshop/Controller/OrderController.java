@@ -34,7 +34,7 @@ public class OrderController {
     }
 
     // 2. 주문을 가져오는 컨트롤러를 만듭니다. 이때 return 값은 "주문 가져오기"입니다.
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<?> getOrder(@AuthenticationPrincipal UserDetails userDetails,
                                       @RequestParam("id") Long id) {
         OrderResponseDto orderResponseDto = orderService.getOrder(userDetails.getUsername(),id);
@@ -60,7 +60,7 @@ public class OrderController {
                                             ,@RequestParam("id") Long id) {
         try{
             orderService.deleteOrder(userDetails.getUsername(), id);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("주문 삭제 완료");
+            return ResponseEntity.status(HttpStatus.OK).body("주문 삭제 완료");
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("주문 삭제 실패");
         }
