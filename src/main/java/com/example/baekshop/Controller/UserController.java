@@ -62,7 +62,7 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@AuthenticationPrincipal UserDetails userDetails) {
         try{
             userService.deleteUser(userDetails.getUsername());
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("사용자 삭제 완료");
+            return ResponseEntity.status(HttpStatus.OK).body("사용자 삭제 완료");
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("사용자 삭제 실패");
         }
