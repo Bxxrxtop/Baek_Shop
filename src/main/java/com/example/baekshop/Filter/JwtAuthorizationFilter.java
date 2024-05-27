@@ -1,6 +1,6 @@
 package com.example.baekshop.Filter;
 
-import com.example.baekshop.UserDetails.CustomUserDetails;
+import com.example.baekshop.Domain.User.UserDetails.CustomUserDetails;
 import com.example.baekshop.Utils.JwtUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;

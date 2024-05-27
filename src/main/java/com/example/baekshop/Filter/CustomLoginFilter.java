@@ -1,8 +1,8 @@
 package com.example.baekshop.Filter;
 
-import com.example.baekshop.Dto.JwtDto;
-import com.example.baekshop.Dto.LoginRequestDto;
-import com.example.baekshop.UserDetails.CustomUserDetails;
+import com.example.baekshop.Domain.User.Dto.JwtDto;
+import com.example.baekshop.Domain.User.Dto.LoginRequestDto;
+import com.example.baekshop.Domain.User.UserDetails.CustomUserDetails;
 import com.example.baekshop.Utils.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
