@@ -1,9 +1,10 @@
 package com.example.baekshop.Utils;
 
-import com.example.baekshop.Dto.JwtDto;
-import com.example.baekshop.Entity.Token;
-import com.example.baekshop.Repository.TokenRepository;
-import com.example.baekshop.UserDetails.CustomUserDetails;
+
+import com.example.baekshop.Domain.User.Dto.JwtDto;
+import com.example.baekshop.Domain.User.Entity.Token;
+import com.example.baekshop.Domain.User.Repository.TokenRepository;
+import com.example.baekshop.Domain.User.UserDetails.CustomUserDetails;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
